@@ -3,13 +3,13 @@
 require_relative "lib/operations/base/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "operation_generators-base"
+  spec.name = "dry-operation_generators-base"
   spec.version = Operations::Base::VERSION
   spec.authors = ["Joel Azemar"]
   spec.email = ["joel.azemar@gmail.com"]
 
   spec.summary = "Shared code of operation generators"
-  spec.homepage = "http://mygemserver.com"
+  spec.homepage = "https://github.com/joel/dry-operation_generators-base"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 3.3.0"
 
