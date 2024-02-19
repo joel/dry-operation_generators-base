@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    operation_generators-base (0.1.0)
+    dry-operation_generators-base (0.1.0)
       activesupport (~> 7.0)
 
 GEM
@@ -246,7 +246,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  operation_generators-base!
+  dry-operation_generators-base!
   rails
   rake
   rspec
