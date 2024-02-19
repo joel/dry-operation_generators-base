@@ -17,11 +17,22 @@ jobs:
           - '3.3.0'
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: ${{ matrix.ruby }}
-        bundler-cache: true
+    -
+      name: Set Bundle
+      run: |
+        gem update --system
+        gem install bundler
+    -
+      name: Bundle Install
+      run: |
+        bundle install --jobs 4 --retry 3
+        bundle lock --add-platform x86_64-linux
+        bundle update
+
     - name: Run the default task
       run: bundle exec rake
