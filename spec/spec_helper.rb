@@ -1,0 +1,33 @@
+# frozen_string_literal: true
+
+ENV["RAILS_ENV"] ||= "test"
+
+begin
+  require "pry"
+rescue LoadError
+  puts "Pry not loaded"
+end
+
+require "operations/base"
+
+Operations.configure do |config|
+  config.primary_key_name = :uuid
+  config.primary_key_type = :string
+  config.foreign_key_suffix = "_uuid"
+end
+
+Dir["#{File.dirname(__FILE__)}/support/pre/**/*.rb"].each { |f| require f }
+
+RSpec.configure do |config|
+  # Enable flags like --only-failures and --next-failure
+  config.example_status_persistence_file_path = ".rspec_status"
+
+  # Disable RSpec exposing methods globally on `Module` and `main`
+  config.disable_monkey_patching!
+
+  config.expect_with :rspec do |c|
+    c.syntax = :expect
+  end
+end
+
+Dir["#{File.dirname(__FILE__)}/support/post/**/*.rb"].each { |f| require f }

@@ -1,0 +1,19 @@
+ # frozen_string_literal: true
+
+class <%= class_name %>Contract < Dry::Validation::Contract
+  schema do
+    <%- @regular_parsed_fields.each do |field| -%>
+    <%= field.requirement %>(:<%= field.name %>).value(:<%= field.type %>)
+    <%- end -%>
+    <%- @reference_parsed_fields.each do |field| -%>
+    <%= field.requirement %>(:<%= field.foreign_key %>).value(:<%= Operations.configuration.primary_key_type %>)
+    <%- end -%>
+  end
+
+  <%- @reference_parsed_fields.each do |field| -%>
+  rule(:<%= field.foreign_key %>) do
+    key.failure("must exist") if <%= field.class_name %>.where(<%= Operations.configuration.primary_key_name %>: value).none?
+  end
+
+  <%- end -%>
+end
