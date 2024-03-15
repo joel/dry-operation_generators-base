@@ -10,7 +10,7 @@ This gems is a dependency of [operation_generators](https://github.com/joel/dry-
 
 NOTE: The gem needs to be required as `operations/base`
 
-    $ gem "operation_generators-base", require: "operations/base"
+    $ gem "dry-operation_generators-base", require: "operations/base"
 
 Otherwise, you can require "operations/base" on your code.
 
