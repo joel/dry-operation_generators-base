@@ -38,19 +38,15 @@ It aims to speed up the development.
 
 ## Installation
 
-Install the gem and add to the application's Gemfile by executing:
+Install the gem and add to the application's Gemfile:
 
-    $ bundle add operation_generators
-
-If Bundler is not being used to manage dependencies, install the gem by executing:
-
-    $ gem install operation_generators
-
-NOTE: The gem needs to be required as `operations`
-
-    $ gem "operation_generators", require: "operations"
-
-Otherwise, you can require "operations" on your code.
+```ruby
+group :development do
+  gem "dry-operation_generators-base", require: "operations/base"
+  gem "dry-operation_generators"
+  gem "dry-operation_generators-rspec" # or gem "dry-operation_generators-test_unit"
+end
+```
 
 ## Usage
 
