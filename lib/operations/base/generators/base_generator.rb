@@ -44,7 +44,8 @@ module Operations
           when :test_unit
             @base_test_dir = "test"
           else
-            raise Thor::Error, "Unknown test framework: '#{Rails.application.config.generators.test_framework}', please specify --test_framework=test_unit or --test_framework=rspec."
+            raise Thor::Error,
+                  "Unknown test framework: '#{Rails.application.config.generators.test_framework}', please specify --test_framework=test_unit or --test_framework=rspec."
           end
 
           @root_test_file_path = base_test_dir
